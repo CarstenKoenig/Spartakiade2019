@@ -1,0 +1,22 @@
+{
+  "name": "lsysteme",
+  "version": "1.0.0",
+  "description": "L-Systeme in PureScript",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf .cache output .pulp-cache .psc-package dist",
+    "build": "psc-package build && pulp build -O",
+    "dev": "rimraf dist && npm run build && parcel build ./html/index.html",
+    "start": "npm run build && parcel ./html/index.html",
+    "watch": "npm run build && parcel watch ./html/index.html"
+  },
+  "author": "Carsten König",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "psc-package": "^3.0.1",
+    "pulp": "^12.4.0",
+    "purescript": "^0.12.5",
+    "rimraf": "^2.6.3"
+  }
+}

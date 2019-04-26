@@ -1,0 +1,24 @@
+{
+  "name": "start",
+  "set": "psc-0.12.5",
+  "source": "https://github.com/purescript/package-sets.git",
+  "depends": [
+    "arrays",
+    "console",
+    "control",
+    "effect",
+    "either",
+    "foldable-traversable",
+    "functions",
+    "globals",
+    "lists",
+    "math",
+    "maybe",
+    "prelude",
+    "proxy",
+    "psci-support",
+    "strings",
+    "tuples",
+    "typelevel-prelude"
+  ]
+}

@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  font-family: "Orbitron";
+}
+
+.row {
+  height: 40px;
+  margin: 2px;
+}
+
+.cell {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0px 1px;
+}
+
+button {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+button.marked {
+  background-image: url('../images/mark.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+button.flagged {
+  background-image: url('../images/flag.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.revealed {
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.mine {
+  background-image: url('../images/mine.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.overlay {
+  position: fixed;
+  text-align:  center;
+  line-height: 100%;
+  font-size: 3.2em;
+  width: 100%;
+  height: 100%;
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+.overlay .lost {
+  margin: auto auto;
+  width: 80%;
+  height: 80%;
+  background-image: url('../images/gameOver.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  color: darkred;
+}
+
+.overlay .won {
+  margin: auto auto;
+  width: 80%;
+  height: 80%;
+  color: darkgreen;
+}
