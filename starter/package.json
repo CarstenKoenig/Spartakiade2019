@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf .cache output .pulp-cache .psc-package dist",
-    "build": "psc-package build && pulp build",
-    "dev": "rimraf dist && npm run build && parcel build ./src/index.html",
+    "deps": "psc-package install",
+    "build": "pulp --psc-package build",
+    "dist": "rimraf dist && npm run build && parcel build ./src/index.html",
     "start": "npm run build && parcel ./src/index.html"
   },
   "keywords": [],

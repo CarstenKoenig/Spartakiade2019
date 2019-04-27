@@ -23,7 +23,7 @@ main = do
 
 gameWidget :: forall a . Board -> Widget HTML a
 gameWidget board = do
-  text "TODO"
+  text "Minesweeper"
 
 onRightClick :: Props SyntheticMouseEvent
 onRightClick = Handler handle

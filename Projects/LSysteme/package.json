@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf .cache output .pulp-cache .psc-package dist",
-    "build": "psc-package build && pulp build -O",
-    "dev": "rimraf dist && npm run build && parcel build ./html/index.html",
-    "start": "npm run build && parcel ./html/index.html",
-    "watch": "npm run build && parcel watch ./html/index.html"
+    "deps": "psc-package install",
+    "build": "pulp --psc-package build",
+    "dist": "rimraf dist && npm run build && parcel build ./html/index.html",
+    "start": "npm run build && parcel ./html/index.html"
   },
   "author": "Carsten König",
   "license": "ISC",

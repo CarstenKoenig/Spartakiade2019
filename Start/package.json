@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf .cache output .pulp-cache .psc-package",
-    "build": "psc-package build && pulp build",
-    "start": "pulp run"
+    "deps": "psc-package install",
+    "build": "pulp --psc-package build",
+    "start": "pulp --psc-package run"
   },
   "keywords": [],
   "author": "",
