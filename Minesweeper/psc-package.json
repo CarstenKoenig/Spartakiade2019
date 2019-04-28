@@ -1,0 +1,13 @@
+{
+  "name": "minesweeper",
+  "set": "psc-0.12.5",
+  "source": "https://github.com/purescript/package-sets.git",
+  "depends": [
+    "concur-react",
+    "console",
+    "effect",
+    "prelude",
+    "psci-support",
+    "random"
+  ]
+}

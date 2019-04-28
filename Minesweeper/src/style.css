@@ -1,0 +1,15 @@
+button {
+  width: 30px !important;
+  height: 30px !important; 
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.no-gutters > .col,
+.no-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}
