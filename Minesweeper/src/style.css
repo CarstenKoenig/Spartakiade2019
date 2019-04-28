@@ -1,6 +1,9 @@
-button {
+.cell {
   width: 30px !important;
   height: 30px !important; 
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
 }
 
 .no-gutters {

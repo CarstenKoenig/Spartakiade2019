@@ -5,18 +5,21 @@ module Game
   , emptyBoard
   , insertMine
   , getCell
+  , revealCell
   , randomBoard
   ) where
 
 import Prelude
 
+import Algorithm.Closure (closure)
 import Control.MonadZero (guard)
-import Data.Array (cons, (..), foldl)
-import Data.Foldable (length)
+import Data.Array (cons, (..))
+import Data.Foldable (foldl, length)
 import Data.List (filter)
 import Data.Map (Map)
 import Data.Map as Map
 import Data.Maybe (Maybe(..), maybe)
+import Data.Set as Set
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Effect.Random (randomInt)
@@ -42,6 +45,8 @@ data CellState
   | Flagged
   | Marked
   | Revealed
+
+derive instance eqCellState :: Eq CellState
 
 type BoardSize =
   { rowCount :: Int
@@ -69,6 +74,29 @@ emptyBoard boardSize =
 getCell :: Board -> Coord -> Maybe Cell
 getCell board coord =
   Map.lookup coord board.map
+
+revealCell :: Coord -> Board -> Board
+revealCell coord board =
+  foldl
+    (flip setRevealed)
+    board
+    (closure neighbors coord)
+  where
+  neighbors coord' =
+    case getCell board coord' of
+      Just { content: Empty 0 } -> Set.fromFoldable $ do
+        row <- (coord'.row-1) .. (coord'.row+1)
+        col <- (coord'.col-1) .. (coord'.col+1)
+        guard (row /= coord'.row || col /= coord'.col)
+        pure { row, col }
+      _ -> Set.empty
+
+setRevealed :: Coord -> Board -> Board
+setRevealed coord board =
+  updateCell update coord board
+  where
+  update cell =
+    cell { state = Revealed }
 
 insertMine :: Coord -> Board -> Board
 insertMine coord board =
